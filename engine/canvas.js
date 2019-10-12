@@ -26,6 +26,7 @@ function render () {
     // Place functions to update here
     updateBlocks();
     updateRectangles();
+    tempo.Draw();
     updateTempoBars();
 }
 
