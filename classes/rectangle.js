@@ -5,9 +5,6 @@ class Rectangle {
         this.width = width;
         this.height = height;
         this.speed = 16;
-
-        //rectangeleLoop(this);
-
     }
 
     // fonction qui dessine le rectangle dans le canvas

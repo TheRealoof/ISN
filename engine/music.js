@@ -1,5 +1,5 @@
 var bpmInterval = window.setInterval(addTempoBar, bpmToInterval(130));
-var beat = new Event('beat');
+var isPlaying = false;
 
 var tempoBars = [];
 var audio;
@@ -10,19 +10,17 @@ function addTempoBar () {
 
 class tempoBar {
     constructor () {
-        this.x = 0;
+        this.life = 1;
     }
 
     Draw () {
         context.fillStyle = "black";
-        context.fillRect(this.x * cScale, window.innerHeight - 50*cScale, 5*cScale, 20*cScale);
-        context.fillRect(window.innerWidth - this.x * cScale, window.innerHeight - 50*cScale, 5*cScale, 20*cScale);
-        this.x = this.x + speed(200);
-        if(this.x*cScale > ((window.innerWidth)/2)-10*cScale ) {
-
+        context.fillRect(window.innerWidth/2 - this.life*window.innerWidth*0.35 , window.innerHeight - 50*cScale, 5*cScale, 20*cScale);
+        context.fillRect(window.innerWidth/2 + this.life*window.innerWidth*0.35 , window.innerHeight - 50*cScale, 5*cScale, 20*cScale);
+        this.life = this.life - speed(0.5);
+        if(this.life <= 0.05 ) {
           tempoBars.splice(tempoBars.indexOf(this), 1);
-          document.dispatchEvent(beat);
-          this.destroy();
+          beat();
         }
     }
 }
@@ -42,9 +40,12 @@ function playMusic(path, volume) {
     audio = new Audio(path);
     audio.load();
     audio.volume = volume;
-    document.audio.play();
+    audio.play();
+    isPlaying = true;
 }
 
-document.addEventListener('beat', function (e) {
-  console.log("beat");
-}, false);
+function beat() {
+    if (!isPlaying) {
+      playMusic("music.mp3", 0.02);
+    }
+}
