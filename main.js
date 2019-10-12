@@ -5,17 +5,18 @@ var height = 30, width = 50; // l'espace (en blocks de 16 x 16) occuppé par le 
 
 window.onload = function ()
 {
-    // initialisation du canvas 
+  console.log("loaded");
+    // initialisation du canvas
     canvas=document.getElementById('canvas1'); // Récup de l’objet canvas
     context=canvas.getContext('2d'); // Récup du context graphique du canvas
-    
+
     // démarre le calcul du framerate et les fonctions associées (voir frametime.js)
     this.getFrameTime();
 
     playMusic("music.mp3", 0.1); // joue la musique music.mp3 avec un volulme 0.1 (10 %)
 
     // crée le joueur
-    squares.push(new Rectangle (5, 5, 1, 1))
+    squares.push(new Rectangle (5, 5, 1, 1));
 
 
     // crée les blocs de graviers à leur position (x; y)
@@ -24,4 +25,4 @@ window.onload = function ()
             blocks.push (new Block (x, y)); // ajoute un block
         }
     }
-}
+};

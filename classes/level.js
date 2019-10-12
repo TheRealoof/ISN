@@ -1,11 +1,11 @@
 var gravel = new Image();
-gravel.src = "classes/assets/gravel.png"
+gravel.src = "classes/assets/gravel.png";
 
 class Block {
     constructor (x, y) {
         this.x = x;
         this.y = y;
-        
+
     }
 
     Draw () {

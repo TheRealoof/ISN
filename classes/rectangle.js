@@ -4,11 +4,11 @@ class Rectangle {
         this.y = y;
         this.width = width;
         this.height = height;
-        this.speed = 16
+        this.speed = 16;
 
         //rectangeleLoop(this);
-        
-    }  
+
+    }
 
     // fonction qui dessine le rectangle dans le canvas
     Draw() {
@@ -19,22 +19,22 @@ class Rectangle {
     // fonction qui met a jour la position (x; y) du rectangle en fonction de la fleche du clavier appuyée
     updatePos() {
         switch (key[key.length-1]) { //
-            default : 
+            default :
                 break;
-    
+
             case 37 : this.x = this.x - speed(this.speed);
                 break;
-    
+
             case 38 : this.y = this.y - speed(this.speed);
                 break;
-    
+
             case 39 : this.x = this.x + speed(this.speed);
                 break;
-    
+
             case 40 : this.y = this.y + speed(this.speed);
                 break;
-    
-        }   
+
+        }
     }
 }
 

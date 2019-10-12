@@ -1,15 +1,16 @@
 var bpmInterval = window.setInterval(addTempoBar, bpmToInterval(130));
+var beat = new Event('beat');
 
 var tempoBars = [];
 var audio;
 
 function addTempoBar () {
-    tempoBars.push(new tempoBar())
+    tempoBars.push(new tempoBar());
 }
 
 class tempoBar {
     constructor () {
-        this.x = 0
+        this.x = 0;
     }
 
     Draw () {
@@ -18,8 +19,10 @@ class tempoBar {
         context.fillRect(window.innerWidth - this.x * cScale, window.innerHeight - 50*cScale, 5*cScale, 20*cScale);
         this.x = this.x + speed(200);
         if(this.x*cScale > ((window.innerWidth)/2)-10*cScale ) {
-            tempoBars.splice(tempoBars.indexOf(this), 1);
-            this.destroy;
+
+          tempoBars.splice(tempoBars.indexOf(this), 1);
+          document.dispatchEvent(beat);
+          this.destroy();
         }
     }
 }
@@ -32,12 +35,16 @@ function updateTempoBars () {
 }
 
 function bpmToInterval (bpm) {
-    return 1000/(bpm/60) 
+    return 1000/(bpm/60);
 }
 
 function playMusic(path, volume) {
     audio = new Audio(path);
     audio.load();
     audio.volume = volume;
-    audio.play();
+    document.audio.play();
 }
+
+document.addEventListener('beat', function (e) {
+  console.log("beat");
+}, false);

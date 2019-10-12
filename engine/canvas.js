@@ -1,15 +1,15 @@
-var cScale = 1; 
+var cScale = 1;
 /*
 cScale est l'echelle du canvas,
-elle varie selon la taille de la fenetre et est géreée par la fonction resizeCanvas. 
-Multiplier la position et la taille de n'importe quel objet par cette valeur 
+elle varie selon la taille de la fenetre et est géreée par la fonction resizeCanvas.
+Multiplier la position et la taille de n'importe quel objet par cette valeur
 pour le redimentionner en fonction de la taille de la fenetre.
 */
 
 function updateCanvas () {
     clearCanvas();
     resizeCanvas();
-    render()
+    render();
 }
 
 function clearCanvas () {
@@ -19,7 +19,7 @@ function clearCanvas () {
 function resizeCanvas () {
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
-    cScale = window.innerHeight/1000*3
+    cScale = window.innerHeight/1000*3;
 }
 
 function render () {
