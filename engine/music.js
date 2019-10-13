@@ -1,10 +1,11 @@
-var bpmInterval = window.setInterval(addTempoBar, bpmToInterval(130));
+var bpmInterval = window.setInterval(addTempoBar, bpmToInterval(129.8));
 var isPlaying = false;
 var tempo;
 var tempoBars = [];
 var audio;
 var musicpath;
 var volume = 0.2;
+var beatIndex = -1;
 
 function addTempoBar () {
     tempoBars.push(new tempoBar());
@@ -73,6 +74,11 @@ function playMusic () {
 function beat() {
     if (!isPlaying) {
       playMusic(0.02);
+    }
+    if(beatIndex == 0) {
+      beatIndex = 1;
+    } else {
+      beatIndex = 0;
     }
 
     setCubeScale(0.9);

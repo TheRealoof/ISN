@@ -19,7 +19,7 @@ function clearCanvas () {
 function resizeCanvas () {
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
-    cScale = window.innerHeight*0.05;
+    cScale = window.innerHeight*0.08;
 }
 
 function render () {
