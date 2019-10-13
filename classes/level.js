@@ -10,7 +10,7 @@ class Block {
 
     Draw () {
         //console.log("draw");
-        context.drawImage(gravel, (this.x*16*cScale), (this.y*16*cScale), 16*cScale, 16*cScale);
+        context.drawImage(gravel, (this.x*cScale), (this.y*cScale), cScale, cScale);
     }
 }
 

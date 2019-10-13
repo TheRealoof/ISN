@@ -10,7 +10,7 @@ class Rectangle {
     // fonction qui dessine le rectangle dans le canvas
     Draw() {
         context.fillStyle = "red";
-        context.fillRect(this.x*cScale*16, this.y*cScale*16, this.width*cScale*16, this.height*cScale*16);
+        context.fillRect(this.x*cScale, this.y*cScale, this.width*cScale, this.height*cScale);
     }
 
     // fonction qui met a jour la position (x; y) du rectangle en fonction de la fleche du clavier appuyée

@@ -19,13 +19,10 @@ class tempoBar {
     Draw () {
         this.scale = this.scale = window.innerWidth*0.03;
         context.fillStyle = "black";
-        context.fillRect(window.innerWidth/2 - this.life*window.innerWidth*0.35 - this.scale*0.2*0.5, window.innerHeight - cScale*50 - this.scale*0.5, this.scale*0.2, this.scale);
-        context.fillRect(window.innerWidth/2 + this.life*window.innerWidth*0.35 - this.scale*0.2*0.5, window.innerHeight - cScale*50 - this.scale*0.5, this.scale*0.2, this.scale);
+        context.fillRect(window.innerWidth/2 - this.life*window.innerWidth*0.35 - this.scale*0.2*0.5, window.innerHeight - 100 - this.scale*0.5, this.scale*0.2, this.scale);
+        context.fillRect(window.innerWidth/2 + this.life*window.innerWidth*0.35 - this.scale*0.2*0.5, window.innerHeight - 100 - this.scale*0.5, this.scale*0.2, this.scale);
         this.life = this.life - speed(0.5);
-        if(this.life <= 0.01 ) {
-          tempoBars.splice(tempoBars.indexOf(this), 1);
-          beat();
-        }
+
     }
 }
 
@@ -40,7 +37,7 @@ class tempoCube {
     context.fillStyle = "darkgrey";
     context.fillRect(
       window.innerWidth*0.5 - this.scale*0.5,
-      window.innerHeight - cScale*50 - this.scale*0.5,
+      window.innerHeight - 100 - this.scale*0.5,
       this.scale, this.scale);
   }
 }
@@ -50,6 +47,12 @@ function updateTempoBars () {
     for (i = 0; i < tempoBars.length; i++) {
         tempoBars[i].Draw();
     }
+
+    if(tempoBars[0] != null && tempoBars[0].life <= 0.01 ) {
+      tempoBars.splice(0, 1);
+      beat();
+    }
+
 }
 
 function bpmToInterval (bpm) {
