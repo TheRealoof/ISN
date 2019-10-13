@@ -17,10 +17,7 @@ window.onload = function ()
     this.getFrameTime();
 
     // crée le joueur
-    squares.push(new Rectangle (5, 5, 1, 1));
-
-
-
+    squares.push(new Rectangle (25, 15, 1, 1));
 
     // crée les blocs de graviers à leur position (x; y)
     for (var y = 0; y < height; y++) { // pour chaque ligne y

@@ -10,7 +10,10 @@ class Block {
 
     Draw () {
         //console.log("draw");
-        context.drawImage(gravel, (this.x*cScale), (this.y*cScale), cScale, cScale);
+        context.drawImage(gravel,
+          (this.x*cScale) + window.innerWidth/2 - cScale/2 - squares[0].x*cScale,
+          (this.y*cScale) + window.innerHeight/2 - cScale/2 - squares[0].y*cScale,
+          cScale, cScale);
     }
 }
 

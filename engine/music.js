@@ -4,7 +4,7 @@ var tempo;
 var tempoBars = [];
 var audio;
 var musicpath;
-var volume = 0.5;
+var volume = 0.2;
 
 function addTempoBar () {
     tempoBars.push(new tempoBar());
