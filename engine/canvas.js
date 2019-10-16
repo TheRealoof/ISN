@@ -36,3 +36,8 @@ function disableImageSmoothing () {
     canvas.getContext('2d').webkitImageSmoothingEnabled = false;
     canvas.getContext('2d').msImageSmoothingEnabled = false;
 }
+
+function RGBA (r, g, b, a) {
+  var value = 'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
+  return value;
+}

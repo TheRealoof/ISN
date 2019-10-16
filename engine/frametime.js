@@ -3,16 +3,15 @@ var frametime = 0;
 var newFrame = new CustomEvent ('newFrame');
 
 function getFrameTime() {
-    
-    
+
     updateCanvas();
     countFPS();
     showText();
 
     requestAnimationFrame(getFrameTime);
 
-    document.dispatchEvent(newFrame); 
-    
+    document.dispatchEvent(newFrame);
+  
 }
 
 // FPS counter

@@ -11,7 +11,7 @@ window.onload = function ()
 
     tempo = new tempoCube();
 
-    loadMusic('music.mp3')
+    loadMusic('music.mp3');
 
     // démarre le calcul du framerate et les fonctions associées (voir frametime.js)
     this.getFrameTime();
