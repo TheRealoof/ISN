@@ -11,11 +11,3 @@ class Block extends floor {
       super.Update();
     }
 }
-
-function updateBlocks() {
-    var i;
-    for (i = 0; i < blocks.length; i++) {
-        disableImageSmoothing();
-        blocks[i].Update();
-    }
-}

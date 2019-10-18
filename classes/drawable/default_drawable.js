@@ -2,18 +2,20 @@ class defaultDrawable {
   constructor(x, y, image) {
     this.x = x;
     this.y = y;
+    this.xScale = 1;
+    this.yScale = 1;
     this.image = image;
   }
 
   Draw () {
     context.drawImage(this.image,
-        (this.x*cScale) + window.innerWidth/2 - cScale/2 - squares[0].x*cScale,
-        (this.y*cScale) + window.innerHeight/2 - cScale/2 - squares[0].y*cScale,
-        cScale, cScale);
+        (this.x*cScale) + window.innerWidth/2 - cScale/2 - players[0].x*cScale,
+        (this.y*cScale) + window.innerHeight/2 - cScale/2 - players[0].y*cScale,
+        cScale*this.xScale, cScale*this.yScale);
   }
 
   get distanceToPlayer() {
-    return Math.sqrt(Math.pow(this.x - squares[0].x, 2) + Math.pow(this.y - squares[0].y, 2));
+    return Math.sqrt(Math.pow(this.x - players[0].x, 2) + Math.pow(this.y - players[0].y, 2));
   }
 
   Update () {
@@ -47,8 +49,8 @@ class floor extends defaultDrawable {
 
           if(!this.color) {
             context.fillRect(
-              (this.x*cScale) + window.innerWidth/2 - cScale/2 - squares[0].x*cScale,
-              (this.y*cScale) + window.innerHeight/2 - cScale/2 - squares[0].y*cScale,
+              (this.x*cScale) + window.innerWidth/2 - cScale/2 - players[0].x*cScale,
+              (this.y*cScale) + window.innerHeight/2 - cScale/2 - players[0].y*cScale,
               cScale, cScale
             );
           }
@@ -57,8 +59,8 @@ class floor extends defaultDrawable {
 
           if(this.color) {
             context.fillRect(
-              (this.x*cScale) + window.innerWidth/2 - cScale/2 - squares[0].x*cScale,
-              (this.y*cScale) + window.innerHeight/2 - cScale/2 - squares[0].y*cScale,
+              (this.x*cScale) + window.innerWidth/2 - cScale/2 - players[0].x*cScale,
+              (this.y*cScale) + window.innerHeight/2 - cScale/2 - players[0].y*cScale,
               cScale, cScale
             );
           }
@@ -67,4 +69,14 @@ class floor extends defaultDrawable {
     }
   }
 
+}
+
+function updateDrawables() {
+
+  var drawables = blocks.concat(players);
+
+    for (i = 0; i < drawables.length; i++) {
+        disableImageSmoothing();
+        drawables[i].Update();
+    }
 }

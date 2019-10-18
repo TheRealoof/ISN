@@ -10,7 +10,7 @@ class Rectangle {
     // fonction qui dessine le rectangle dans le canvas
     Draw() {
         context.fillStyle = "red";
-        context.fillRect(window.innerWidth/2 - this.width*cScale/2, window.innerHeight/2 - this.height*cScale/2, this.width*cScale, this.height*cScale);
+        //context.fillRect(window.innerWidth/2 - this.width*cScale/2, window.innerHeight/2 - this.height*cScale/2, this.width*cScale, this.height*cScale);
     }
 
     // fonction qui met a jour la position (x; y) du rectangle en fonction de la fleche du clavier appuyée
@@ -38,7 +38,7 @@ class Rectangle {
 function updateRectangles() {
     var i;
     for (i = 0; i < squares.length; i++) {
-        squares[i].updatePos();
+        //squares[i].updatePos();
         squares[i].Draw();
     }
 }
